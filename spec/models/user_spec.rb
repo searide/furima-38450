@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-    context '新規登録できへんとき' do
+    context '新規登録できないとき' do
       it 'ニックネームが必須であること' do
         @user.nickname = ''
         @user.valid?
