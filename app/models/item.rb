@@ -11,6 +11,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :delivery_date_id
     validates :price, numericality: { in: 300..9_999_999 }
+    validates :image
   end
 
   with_options numericality: { other_than: 0 , message: "can't be blank"} do
