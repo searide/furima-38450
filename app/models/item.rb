@@ -2,7 +2,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
-    validates :user_id
     validates :name
     validates :description
     validates :category_id
@@ -10,7 +9,7 @@ class Item < ApplicationRecord
     validates :delivery_cost_id
     validates :prefecture_id
     validates :delivery_date_id
-    validates :price, numericality: { in: 300..9_999_999 }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
     validates :image
   end
 
