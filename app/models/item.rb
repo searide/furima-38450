@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options numericality: { other_than: 0 , message: "can't be blank"} do
+  with_options numericality: { other_than: 0, message: "can't be blank" } do
     validates :category_id
     validates :condition_id
     validates :delivery_cost_id
@@ -31,5 +31,4 @@ class Item < ApplicationRecord
   belongs_to :delivery_cost
   belongs_to :prefecture
   belongs_to :delivery_date
-
 end
