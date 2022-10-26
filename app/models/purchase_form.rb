@@ -3,17 +3,17 @@ class PurchaseForm
   attr_accessor :user_id, :item_id, :postcode, :prefecture_id, :city, :block, :building, :phone_number, :token
 
   with_options presence: true do
+    validates :token
     # purchaseモデルのバリデーション
     validates :user_id
     validates :item_id
     # addressモデルのバリデーション
-    validates :postcode, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :postcode, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'はハイフンを含めて入力してください' }
+    validates :prefecture_id, numericality: { other_than: 0, message: "を選択してください" }
     validates :city
     validates :block
-    validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+    validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'が無効です' }
     # トークンのバリデーション
-    validates :token
   end
 
   def save
